@@ -16,7 +16,7 @@ $id = $_GET["id"];
 
 //$result = $db->query("SELECT * FROM menu WHERE menu_id=".$id);
 
-$st = $db->prepare("SELECT item,price FROM menu WHERE menu_id=:menu_id");
+$st = $db->prepare("SELECT * FROM menu WHERE menu_id=:menu_id");
 
 $st->bindParam("menu_id",$id);
 
@@ -29,7 +29,7 @@ $result = $st->fetchAll(PDO::FETCH_ASSOC);
 // 	echo $row["item"]."<br/>";
 // }
 
-echo json_encode($result)
+echo json_encode($result);
 
 
 // 4. Close the connection

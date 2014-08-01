@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#test").click(function(){
+				$.getJSON("item.php?id=2",function(data){
+					console.log(data);
+					$("#output").text(data[0].item + " $" + data[0].price);
+				});
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<button id="test">Test</button>
+		<div id="output">Click this button...</div>
+	</body>
+</html>

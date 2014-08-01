@@ -1,33 +1,35 @@
 <html>
 	<head>
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>		
 		<script>
 		$(document).ready(function(){
-			// 1. Get menu list
-			$.getJSON("menu.php",function(data){				
-				// 2. build html
+			$.getJSON("menu.php",function(data){
+				
 				var listHtml = "";
-				for(var i=0; i<data.length;i++){
-					listHtml += "<li><a class='item' href='#' rel='"+data[i].menu_id+"'>" + data[i].item  + "</a> ($"+data[i].price+")</li>";
+				
+				for (var i=0; i<data.length;i++){
+					listHtml += "<li><a class='item' href='#' rel='" + data[i].menu_id + "'>" + data[i].item + " ($"+ data[i].price +")</a></li>";
 				}
-				// 3. set menu html and render it
+				
 				$("#menu").html(listHtml);
 				
-				// 4. Bind it click event for each item
+				
 				$(".item").click(function(){
 					var menu_id = $(this).attr("rel");
 					var url = "item.php?id=" + menu_id;
-					$.getJSON(url,function(data){
+					$.getJSON(url, function(data){
 						$("#thumb").html("<img src='images/"+data[0].image+"'/>");
 						$("#details").html(data[0].details);
 					});
-				});
+					
+				});				
 			});
+			
 		});
 		</script>
 	</head>
 	<body>
-		<div style="float:left;width:200px;height:100%;border:1px dashed gray;margin-right:20px;">			
+		<div style="float:left;width:200px;height:100%;border:1px dashed gray;margin-right:20px;">
 			<ol id="menu">
 			</ol>
 		</div>
