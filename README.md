@@ -1,6 +1,5 @@
-php-example
-===========
 
-php example for my online courses
+###Postman Demo
 
-Videos https://vimeo.com/album/2954061/sort:alphabetical/format:thumbnail
+Slides:
+https://docs.google.com/presentation/d/1I1UpLve8vKqXYRcOVwDkATFy0j_6PtJd-hamAxPLOPM/edit?usp=sharing
