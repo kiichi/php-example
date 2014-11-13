@@ -1,0 +1,70 @@
+{
+	"id": "9c4976ec-aeff-28c7-d532-b1509ac15b91",
+	"name": "ProductSearchTest1",
+	"description": "",
+	"order": [
+		"46c04f59-d373-19b2-5567-f43135601d76",
+		"4202ceee-7c95-c127-2383-ff7ecaa48b60"
+	],
+	"folders": [],
+	"timestamp": 1415551266945,
+	"synced": false,
+	"requests": [
+		{
+			"id": "4202ceee-7c95-c127-2383-ff7ecaa48b60",
+			"headers": "",
+			"url": "http://localhost:8888/api/dev/search.php",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "806",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\ntests[\"Should Success\"] = data.status === \"OK\";\ntests[\"Has Items\"] = data.items !== undefined\n",
+			"time": 1415807107932,
+			"name": "Search",
+			"description": "",
+			"collectionId": "9c4976ec-aeff-28c7-d532-b1509ac15b91",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "46c04f59-d373-19b2-5567-f43135601d76",
+			"headers": "",
+			"url": "http://localhost:8888/api/dev/login.php",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "kiichi",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "hello",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\ntests[\"Login Should Success\"] = data.status === \"OK\";\n\n// Save the token into the environment\npostman.setEnvironmentVariable(\"token\",data.token);",
+			"time": 1415807089802,
+			"name": "Login",
+			"description": "",
+			"collectionId": "9c4976ec-aeff-28c7-d532-b1509ac15b91",
+			"responses": [],
+			"synced": false
+		}
+	]
+}

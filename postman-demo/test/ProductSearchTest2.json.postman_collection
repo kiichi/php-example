@@ -1,0 +1,70 @@
+{
+	"id": "f043a068-e265-f7fe-a85d-db627d13e65e",
+	"name": "ProductSearchTest2",
+	"description": "",
+	"order": [
+		"7e7dd898-5cdc-6fc0-b1a4-ea4c0c53f1c7",
+		"d0d6be7f-a159-06d6-1e13-ac1bbb9dd179"
+	],
+	"folders": [],
+	"timestamp": 1415723840535,
+	"synced": false,
+	"requests": [
+		{
+			"id": "7e7dd898-5cdc-6fc0-b1a4-ea4c0c53f1c7",
+			"headers": "",
+			"url": "http://localhost:8888/api/{{path}}/login.php",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "{{username}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "{{password}}",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\ntests[\"Login Should Success\"] = data.status === \"OK\";\n\n// Save the token into the environment\npostman.setEnvironmentVariable(\"token\",data.token);",
+			"time": 1415806590192,
+			"name": "Login",
+			"description": "",
+			"collectionId": "f043a068-e265-f7fe-a85d-db627d13e65e",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "d0d6be7f-a159-06d6-1e13-ac1bbb9dd179",
+			"headers": "",
+			"url": "http://localhost:8888/api/{{path}}/search.php",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "{{token}}",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\ntests[\"Should Success\"] = data.status === \"OK\";\ntests[\"Has Items\"] = data.items !== undefined\n",
+			"time": 1415807131692,
+			"name": "Search",
+			"description": "",
+			"collectionId": "f043a068-e265-f7fe-a85d-db627d13e65e",
+			"responses": [],
+			"synced": false
+		}
+	]
+}
